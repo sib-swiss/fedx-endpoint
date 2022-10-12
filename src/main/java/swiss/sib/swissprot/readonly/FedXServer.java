@@ -3,7 +3,9 @@ package swiss.sib.swissprot.readonly;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import org.eclipse.rdf4j.federated.FedXConfig;
 import org.eclipse.rdf4j.federated.FedXFactory;
+import org.eclipse.rdf4j.federated.repository.FedXRepository;
 import org.eclipse.rdf4j.http.server.readonly.QueryResponder;
 import org.eclipse.rdf4j.repository.Repository;
 import org.slf4j.Logger;
@@ -23,19 +25,22 @@ import org.springframework.context.annotation.Import;
 public class FedXServer {
 	private static final Logger logger = LoggerFactory.getLogger(FedXServer.class);
 	
-	@Autowired
-	private FedXConfig config;
-
 	
 	public FedXServer() throws FileNotFoundException, IOException {
 	}
 
 	@Bean
 	public Repository getRepository() throws FileNotFoundException, IOException {
-		return FedXFactory.newFederation()
+		FedXConfig config = new FedXConfig().withEnforceMaxQueryTime(0);
+		
+		FedXRepository create = FedXFactory.newFederation()
 				.withSparqlEndpoint("https://sparql.uniprot.org/sparql")
 				.withSparqlEndpoint("https://sparql.rhea-db.org/sparql")
+				.withConfig(config)
+				
 				.create();
+		
+		return create;
 	}
 
 	public static void main(String[] args) {
