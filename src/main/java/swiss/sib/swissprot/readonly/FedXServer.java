@@ -36,6 +36,7 @@ public class FedXServer {
 		FedXRepository create = FedXFactory.newFederation()
 				.withSparqlEndpoint("https://sparql.uniprot.org/sparql")
 				.withSparqlEndpoint("https://sparql.rhea-db.org/sparql")
+				.withSparqlEndpoint("https://rdf.metanetx.org/")
 				.withConfig(config)
 				
 				.create();
