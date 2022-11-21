@@ -6,7 +6,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<rdf4j.version>4.2.0</rdf4j.version>
+		<rdf4j.version>4.2.1</rdf4j.version>
 		<slf4j.version>1.7.32</slf4j.version>
 		<spring.boot.version>2.7.3</spring.boot.version>
 		<maven.compiler.release>17</maven.compiler.release>
