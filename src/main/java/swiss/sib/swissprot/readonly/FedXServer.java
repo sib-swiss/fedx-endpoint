@@ -37,6 +37,7 @@ public class FedXServer {
 				.withSparqlEndpoint("https://sparql.uniprot.org/sparql")
 				.withSparqlEndpoint("https://sparql.rhea-db.org/sparql")
 				.withSparqlEndpoint("https://rdf.metanetx.org/sparql")
+				.withSparqlEndpoint("https://bgee.org/sparql/")
 				.withConfig(config)
 				
 				.create();
